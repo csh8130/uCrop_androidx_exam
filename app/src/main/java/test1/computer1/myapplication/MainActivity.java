@@ -107,7 +107,7 @@ public class MainActivity extends BaseActivity {
     private void startCropActivity(@NonNull Uri uri) {
         UCrop uCrop = UCrop.of(uri, mDestinationUri);
 
-        uCrop = _setRatio(uCrop, RATIO_ORIGIN, 0, 0);
+        uCrop = _setRatio(uCrop, RATIO_SQUARE, 0, 0);
         uCrop = _setSize(uCrop, 0, 0);
 
         uCrop = _advancedConfig(uCrop, FORMAT_JPEG, 90);
@@ -309,6 +309,9 @@ public class MainActivity extends BaseActivity {
                 break;
         }
         options.setCompressionQuality(quality); // range [0-100]
+
+        //circle
+        options.setCircleDimmedLayer(true);
 
         /*
         If you want to configure how gestures work for all UCropActivity tabs
